@@ -1,0 +1,11 @@
+@media screen and (min-width:768px) {
+  .about-emp {
+    min-height:350px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .about-emp {
+    min-height:250px;
+  }
+}
