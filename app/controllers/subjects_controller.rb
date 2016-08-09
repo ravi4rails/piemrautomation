@@ -2,7 +2,8 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
 
   def index
-    @subjects = Subject.all
+    @search = Subject.search(params[:q])
+    @subjects = @search.result
   end
 
   def show
@@ -61,6 +62,6 @@ class SubjectsController < ApplicationController
     end
 
     def subject_params
-      params.require(:subject).permit(:name)
+      params.require(:subject).permit(:name, :nickname)
     end
 end
