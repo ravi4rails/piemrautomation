@@ -38,11 +38,19 @@
 
   </div>
   <div class="col-md-6 col-sm-5 col-xs-12">
+
+    <div class="form-group">
+      <%= f.select :department_id, options_for_select(Department.all.collect {|p| [ p.name, p.id ] },(f.object.try(:department_id))),{include_blank: 'Select Department'}, { :class => 'form-control input-lg'} %>
+    </div>
+
     <div class="form-group">
       <%= f.text_area :about, class: "form-control input-lg about-emp", placeholder: "About Employee" %>
     </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="col-md-6 col-xs-12 col-sm-7 col-lg-6">
+    <div class="form-group actions">
+      <%= f.submit class: "btn btn-lg btn-primary btn-block" %>
+    </div>
   </div>
 <% end %>

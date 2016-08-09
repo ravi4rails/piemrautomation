@@ -1,5 +1,11 @@
 <div class="container">
-  <h1>New Employee</h1>
+  <div class="jumbotron">
+    <h2>New Employee</h2>
+  </div>
   <%= render 'form' %>
-  <%= link_to 'Back', employees_path %>
+  <div class="col-md-6 col-xs-12 col-sm-5 col-lg-6">
+    <div class="form-group">
+      <%= link_to 'Back', employees_path, class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+  </div>
 </div>
