@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require ckeditor-jquery
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
