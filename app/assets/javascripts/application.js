@@ -16,3 +16,5 @@
 //= require bootstrap
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap.min
+//= require dataTables.responsive.min
+//= require responsive.bootstrap.min.js
