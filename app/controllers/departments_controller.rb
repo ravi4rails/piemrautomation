@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action :set_department, only: [:show, :edit, :update, :destroy]
+  before_action :set_department, only: [:show, :edit, :update, :destroy, :department_employees]
 
   def index
     @search = Department.search(params[:q])
@@ -54,8 +54,8 @@ class DepartmentsController < ApplicationController
     end
   end
 
-  def department_employee
-    @employee = Employee.find(params[:employee_id])
+  def department_employees
+    @employees = @department.employees
   end
 
   private

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="dept-emp-table">
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Joining Date</th>
+          <th>Info</th>
+        </tr>
+      </thead>
+      <tbody class="dept-emp-table">
+        <% @employees.each do |employee| %>
+         <tr>
+            <td><%= image_tag "k2.jpg", class: "dept-emp"%></td>
+            <td><%= employee.full_name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.date_of_joining %></td>
+            <td>
+              <%= link_to 'Go', employee, class: "btn btn-info" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <center>
+    <div class="btm-sec">
+      <a href="<%= department_path(@department) %>" class="back-link">
+        <%= image_tag "bkbtn.png", class: "img-responsive"%>
+      </a>
+    </div>
+  </center>
+</div>

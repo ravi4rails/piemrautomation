@@ -1,14 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="jumbotron">
+    <div class="text-center">
+      <h2><%= @department.name %></h2>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @department.name %>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @department.nickname %>
-</p>
-
-<%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
+      <a href="" class="dept-item-link">
+        <div class="department-items">
+          <%= image_tag "courses.jpg", class: "img-responsive" %>
+          <div class="item-heading text-center">
+            <h3>Courses Offered</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
+      <a href="<%= department_employees_department_path(@department.id)%>" class="dept-item-link">
+        <div class="department-items">
+          <%= image_tag "employees.png", class: "img-responsive" %>
+          <div class="item-heading text-center">
+            <h3>Employees</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
+      <a href="" class="dept-item-link">
+        <div class="department-items">
+          <%= image_tag "students.png", class: "img-responsive" %>
+          <div class="item-heading text-center">
+            <h3>Students</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <center>
+    <div class="btm-sec">
+      <a href="<%= departments_path %>" class="back-link">
+        <%= image_tag "bkbtn.png", class: "img-responsive"%>
+      </a>
+    </div>
+  </center>
+</div>
