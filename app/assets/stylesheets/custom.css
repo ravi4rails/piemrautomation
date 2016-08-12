@@ -2,6 +2,10 @@
   .about-emp {
     min-height:290px;
   }
+  .top-header h1 {
+    padding-top:4.2%;
+    color:#f00;
+  }
 }
 
 @media screen and (max-width:767px) {
@@ -10,6 +14,15 @@
   }
   .department-items {
     margin-bottom:10px;
+  }
+  .top-header h1 {
+    padding-top:12.5%;
+    color:#009688;
+  }
+  .nav-custom .navbar-brand {
+    font-size: 25px;
+    padding-top: 19px;
+    font-weight: 700;
   }
 }
 .search_form {
@@ -57,4 +70,45 @@
 }
 .dept-emp-table > tr > th {
   text-align:center;
+}
+
+
+.top-header {
+  height:150px;
+  margin-top:-20px;
+  margin-bottom: -10px;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #337aa7;
+}
+
+.nav-custom {
+  background-color: #00bff0;
+}
+.nav-custom .navbar-brand, .nav-custom .navbar-brand:hover {
+  color:#fff;
+}
+.nav-custom .navbar-nav > li > a, .nav-custom .navbar-nav > li > a:hover {
+  color: #fff;
+}
+
+.nav-custom .navbar-nav > .active > a, .nav-custom .navbar-nav > .active > a:hover, .nav-custom .navbar-nav > .active > a:focus {
+    background-color: #00bff0;
+    color: #fff;
+}
+.nav-custom .navbar-toggle {
+  border:none;
+}
+.nav-custom .navbar-toggle:hover, .nav-custom .navbar-toggle:focus {
+  background-color: #00bff0;
+}
+.nav-custom .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.nav-custom .navbar-toggle .icon-bar {
+  height: 5px;
+  width: 40px;
 }
