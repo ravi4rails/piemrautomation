@@ -1,0 +1,6 @@
+<% if @course.errors.any? %>
+  $(".error_explanation").html("<%= escape_javascript(render('courses/error'))%>")
+<% else %>
+  $("#edit-course-modal").modal('hide')
+  $('#course_<%= @course.id %>').replaceWith("<%= escape_javascript(render('course', course: @course )) %>")
+<% end %>

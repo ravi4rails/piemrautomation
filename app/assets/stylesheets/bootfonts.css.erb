@@ -6,4 +6,10 @@
 }
 .top-header {
   background-image: url('<%= asset_path("academicbg.jpg") %>');
+  background-size: cover;
+}
+@media screen and (min-width:768px) {
+  .top-header {
+    min-height:300px;
+  }
 }

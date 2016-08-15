@@ -68,3 +68,6 @@ e19 = Employee.create(first_name: "Bhanupriya", last_name: "Jain", date_of_joini
 
 e20 = Employee.create(first_name: "Rijavana", last_name: "Mansoori", date_of_joining: Date.today - 3.years, department_id: 5, email: "rmansoori@edu.com", mobile: "7875809036", designation: "Assistant Professor", about: "She is an Assistant Professor.")
 
+c1 = Course.create(name: "MCA", department_id: 1, duration: "3 Years")
+c2 = Course.create(name: "BCA", department_id: 1, duration: "3 Years")
+c3 = Course.create(name: "BE(CS)", department_id: 1, duration: "4 Years")
