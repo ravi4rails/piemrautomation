@@ -10,5 +10,9 @@
   <%= @section.course_id %>
 </p>
 
+<% @section.attachments.each do |attachment| %>
+  <%= link_to "Download This PDF", attachment.attachment_url %><br>
+<% end %>
+
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>

@@ -2,7 +2,6 @@
   <% if @section.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
-
       <ul>
       <% @section.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,16 +9,28 @@
       </ul>
     </div>
   <% end %>
+  <div class="col-md-6 col-xs-12">
+    <div class="form-group">
+      <%= f.select :course_id, options_for_select(Course.all.collect {|p| [ p.name, p.id ] },(f.object.try(:course_id))),{include_blank: 'Select Course'}, { :class => 'form-control input-lg'} %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control input-lg" %>
+    </div>
+
+    <div class="well">
+      <h3>Attachments</h3>
+    </div>
+    <div id="attachments">
+      <%= f.fields_for :attachments do |attachment| %>
+        <%= render "sections/attachment_fields", f: attachment %>
+        <%= link_to_add_association 'add attachment', f, :attachments%>
+      <% end %>
+    </div>
+
+    <div class="form-group actions">
+      <%= f.submit class: "btn btn-lg btn-primary btn-block" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

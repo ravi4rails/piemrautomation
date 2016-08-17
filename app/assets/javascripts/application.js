@@ -18,3 +18,4 @@
 //= require dataTables.bootstrap.min
 //= require dataTables.responsive.min
 //= require responsive.bootstrap.min
+//= require cocoon

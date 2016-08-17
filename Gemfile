@@ -53,3 +53,4 @@ gem 'ransack'
 gem 'geocoder'
 gem "rmagick"
 gem "carrierwave"
+gem "cocoon"
