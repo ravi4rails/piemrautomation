@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="text-center">
+    <div class="well">
+      <h2><%= @department.nickname %> Courses</h2>
+    </div>
+  </div>
+  <div class="">
+  </div>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% @department.courses.each do |course| %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading_<%= course.id%>">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_<%= course.id%>" aria-expanded="true" aria-controls="collapseOne">
+              <%= course.name %>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse_<%= course.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_<%= course.id%>">
+          <div class="panel-body">
+            <table class="table">
+              <tbody>
+                <% course.sections.each do |section| %>
+                  <tr>
+                    <td><%= link_to section.name, section_path(section) %></td>
+                    <td>
+                      <%= link_to edit_section_path(section), class: "btn btn-primary"  do %>
+                        <i class="fa fa-pencil"></i> Edit
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <center>
+    <div class="btm-sec">
+      <a href="<%= department_path(@department) %>" class="back-link">
+        <%= image_tag "bkbtn.png", class: "img-responsive"%>
+      </a>
+    </div>
+  </center>
+</div>

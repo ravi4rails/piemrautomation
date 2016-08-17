@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="text-center">
+    <h2><%= @course.department.try(:name) %></h2>
+    <h3><%= @course.name %></h3>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @course.department_id %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+  <div class="well">
+    <% @course.sections.each do |section|%>
+      <h4><%= section.name %></h4>
+    <% end %>
+  </div>
+  <%= link_to 'Edit', edit_course_path(@course) %> |
+  <%= link_to 'Back', courses_path %>
+</div>

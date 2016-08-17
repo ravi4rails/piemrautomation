@@ -71,3 +71,39 @@ e20 = Employee.create(first_name: "Rijavana", last_name: "Mansoori", date_of_joi
 c1 = Course.create(name: "MCA", department_id: 1, duration: "3 Years")
 c2 = Course.create(name: "BCA", department_id: 1, duration: "3 Years")
 c3 = Course.create(name: "BE(CS)", department_id: 1, duration: "4 Years")
+c4 = Course.create(name: "BE(IT)", department_id: 1, duration: "4 Years")
+c5 = Course.create(name: "Deploma CS", department_id: 1, duration: "3 Years")
+
+c6 = Course.create(name: "BE", department_id: 5, duration: "4 Years")
+c7 = Course.create(name: "Deploma ME", department_id: 5, duration: "3 Years")
+
+c8 = Course.create(name: "BE", department_id: 3, duration: "4 Years")
+c9 = Course.create(name: "Deploma EE", department_id: 3, duration: "3 Years")
+
+c10 = Course.create(name: "BE", department_id: 2, duration: "4 Years")
+c11 = Course.create(name: "Deploma EC", department_id: 2, duration: "3 Years")
+
+c12 = Course.create(name: "BE", department_id: 4, duration: "4 Years")
+
+courses = Course.all
+
+courses.each do |course|
+  if course.duration == "4 Years"
+    section = Section.create(name: "I Semester", course_id: course.id)
+    section = Section.create(name: "II Semester", course_id: course.id)
+    section = Section.create(name: "III Semester", course_id: course.id)
+    section = Section.create(name: "IV Semester", course_id: course.id)
+    section = Section.create(name: "V Semester", course_id: course.id)
+    section = Section.create(name: "VI Semester", course_id: course.id)
+    section = Section.create(name: "VII Semester", course_id: course.id)
+    section = Section.create(name: "VIII Semester", course_id: course.id)
+  end
+  if course.duration == "3 Years"
+    section = Section.create(name: "I Semester", course_id: course.id)
+    section = Section.create(name: "II Semester", course_id: course.id)
+    section = Section.create(name: "III Semester", course_id: course.id)
+    section = Section.create(name: "IV Semester", course_id: course.id)
+    section = Section.create(name: "V Semester", course_id: course.id)
+    section = Section.create(name: "VI Semester", course_id: course.id)
+  end
+end
