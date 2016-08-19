@@ -1,0 +1,2 @@
+$("#edit-batch-modal").modal('hide')
+$('#batch_<%= @batch.id %>').replaceWith("<%= escape_javascript(render('batch', batch: @batch )) %>")

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :new_batch_form
     end
   end
+  resources :batches
   resources :departments do
     member do
       get :department_employees

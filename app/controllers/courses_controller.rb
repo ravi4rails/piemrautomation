@@ -55,8 +55,15 @@ class CoursesController < ApplicationController
   end
 
   def add_new_batch
-    # @batch = Batch.create(course_id: params[:add_new_batch][:course_id], start_year: params[:add_new_batch][:start_year], end_year: params[:add_new_batch][:end_year])
     @batch = Batch.create(batch_params)
+    if @batch.end_year >= Date.today
+      @batch.update(:is_active => true)
+    else
+      @batch.update(:is_active => false)
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new_batch_form

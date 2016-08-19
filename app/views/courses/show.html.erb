@@ -4,20 +4,53 @@
     <h2><%= @course.department.try(:name) %></h2>
     <h3><%= @course.name %></h3>
   </div>
-
+  <% if @course.batches.present? %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="batch-index">
+          <% @course.batches.each do |batch| %>
+            <tr id="batch_<%= batch.id %>">
+              <td><%= "#{batch.course.name} #{batch.start_year.strftime('%Y')} - #{batch.end_year.strftime('%Y')}"%></td>
+              <td><%= batch.is_active%></td>
+              <td class="hidden-xs">
+                <%= link_to edit_batch_path(batch), class: "btn btn-warning", remote: true do %>
+                  <i class="fa fa-pencil"></i> Edit
+                <% end %>
+              </td>
+              <td class="visible-xs">
+                <%= link_to edit_batch_path(batch), class: "btn btn-warning btn-xs", remote: true do %>
+                  <i class="fa fa-pencil"></i> Edit
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
   <div class="batch_section">
     <%= link_to "Add New Batch", new_batch_form_course_path(@course), class: "btn btn-lg btn-custom", remote: true %>
   </div>
 
-  <div class="well">
+  <!-- <div class="well">
     <% @course.sections.each do |section|%>
       <h4><%= section.name %></h4>
     <% end %>
-  </div>
+  </div> -->
   <%= link_to 'Edit', edit_course_path(@course) %> |
   <%= link_to 'Back', courses_path %>
 
   <div class="modal fade" id="batch-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  </div>
+
+  <div class="modal fade" id="edit-batch-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   </div>
 
 </div>

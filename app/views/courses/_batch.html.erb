@@ -1,0 +1,15 @@
+<tr id="batch_<%= batch.id %>">
+  <td><%= batch.start_year%></td>
+  <td><%= batch.end_year%></td>
+  <td><%= batch.is_active%></td>
+  <td class="hidden-xs">
+    <%= link_to edit_batch_path(batch), class: "btn btn-warning", remote: true do %>
+      <i class="fa fa-pencil"></i> Edit
+    <% end %>
+  </td>
+  <td class="visible-xs">
+    <%= link_to edit_batch_path(batch), class: "btn btn-warning btn-xs", remote: true do %>
+      <i class="fa fa-pencil"></i> Edit
+    <% end %>
+  </td>
+</tr>
