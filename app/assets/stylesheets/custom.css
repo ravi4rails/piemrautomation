@@ -107,3 +107,10 @@
   height: 5px;
   width: 40px;
 }
+.btn-custom {
+  background-color: #008B8B;
+  color:#fff;
+}
+.btn-custom:hover {
+  color:#fff;
+}

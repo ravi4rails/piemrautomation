@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :sections
-  resources :courses
+  resources :courses do
+    member do
+      post :add_new_batch
+      get :new_batch_form
+    end
+  end
   resources :departments do
     member do
       get :department_employees

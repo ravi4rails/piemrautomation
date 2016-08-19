@@ -5,6 +5,10 @@
     <h3><%= @course.name %></h3>
   </div>
 
+  <div class="batch_section">
+    <%= link_to "Add New Batch", new_batch_form_course_path(@course), class: "btn btn-lg btn-custom", remote: true %>
+  </div>
+
   <div class="well">
     <% @course.sections.each do |section|%>
       <h4><%= section.name %></h4>
@@ -12,4 +16,8 @@
   </div>
   <%= link_to 'Edit', edit_course_path(@course) %> |
   <%= link_to 'Back', courses_path %>
+
+  <div class="modal fade" id="batch-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  </div>
+
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817122319) do
+ActiveRecord::Schema.define(version: 20160819131314) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "attachment"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20160817122319) do
     t.string   "attachable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "batches", force: :cascade do |t|
+    t.date     "start_year"
+    t.date     "end_year"
+    t.boolean  "is_active"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "courses", force: :cascade do |t|

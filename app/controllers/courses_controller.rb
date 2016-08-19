@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :new_batch_form]
 
   def index
     @search = Course.search(params[:q])
@@ -54,10 +54,22 @@ class CoursesController < ApplicationController
     end
   end
 
+  def add_new_batch
+    # @batch = Batch.create(course_id: params[:add_new_batch][:course_id], start_year: params[:add_new_batch][:start_year], end_year: params[:add_new_batch][:end_year])
+    @batch = Batch.create(batch_params)
+  end
+
+  def new_batch_form
+  end
+
   private
 
     def set_course
       @course = Course.find(params[:id])
+    end
+
+    def batch_params
+      params.require(:add_new_batch).permit(:start_year, :end_year, :course_id)
     end
 
     def course_params
