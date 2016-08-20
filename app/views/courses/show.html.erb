@@ -17,7 +17,7 @@
         <tbody id="batch-index">
           <% @course.batches.each do |batch| %>
             <tr id="batch_<%= batch.id %>">
-              <td><%= "#{batch.course.name} #{batch.start_year.strftime('%Y')} - #{batch.end_year.strftime('%Y')}"%></td>
+              <td><%= link_to "#{batch.course.name} #{batch.start_year.strftime('%Y')} - #{batch.end_year.strftime('%Y')}", batch %></td>
               <td><%= batch.is_active%></td>
               <td class="hidden-xs">
                 <%= link_to edit_batch_path(batch), class: "btn btn-warning", remote: true do %>

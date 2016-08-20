@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :set_section, only: [:edit, :update, :destroy]
+  before_action :set_batch, only: [:new, :create]
 
   def index
     @sections = Section.all
@@ -9,24 +10,19 @@ class SectionsController < ApplicationController
   end
 
   def new
-    @section = Section.new
-    @section.attachments.build
+    @batch.sections.build
   end
 
   def edit
-    @section.attachments.build
   end
 
   def create
-    @section = Section.new(section_params)
-
+    @section = @batch.sections.create(section_params)
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
-        format.json { render :show, status: :created, location: @section }
+        format.js
       else
-        format.html { render :new }
-        format.json { render json: @section.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -34,11 +30,9 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to @section, notice: 'Section was successfully updated.' }
-        format.json { render :show, status: :ok, location: @section }
+        format.js
       else
-        format.html { render :edit }
-        format.json { render json: @section.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -58,6 +52,10 @@ class SectionsController < ApplicationController
     end
 
     def section_params
-      params.require(:section).permit(:name, :course_id, attachments_attributes: [:id, :attachment, :_destroy])
+      params.require(:section).permit(:name, :begining, :closing, :status)
+    end
+
+    def set_batch
+      @batch = Batch.find(params[:batch_id])
     end
 end

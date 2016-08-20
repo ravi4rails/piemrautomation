@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  resources :sections
+
   resources :courses do
     member do
       post :add_new_batch
       get :new_batch_form
     end
   end
-  resources :batches
+  resources :batches do
+    resources :sections, only: [:new, :create]
+  end
+  resources :sections, only: [:edit, :update, :destroy]
   resources :departments do
     member do
       get :department_employees

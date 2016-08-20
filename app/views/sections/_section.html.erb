@@ -1,0 +1,14 @@
+<tr id="section_<%= section.id%>">
+  <td><%= section.section_name %></td>
+  <td><%= section.status %></td>
+  <td class="hidden-xs">
+    <%= link_to edit_section_path(section), class: "btn btn-warning" do %>
+      <i class="fa fa-pencil"></i> Edit
+    <% end %>
+  </td>
+  <td class="visible-xs">
+    <%= link_to edit_section_path(section), class: "btn btn-warning btn-xs" do %>
+      <i class="fa fa-pencil"></i> Edit
+    <% end %>
+  </td>
+</tr>

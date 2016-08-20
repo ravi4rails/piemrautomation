@@ -1,7 +1,10 @@
 class BatchesController < ApplicationController
-  before_action :set_batch, only: [:edit, :update]
+  before_action :set_batch, only: [:edit, :update, :show]
 
   def edit
+  end
+
+  def show
   end
 
   def update

@@ -6,6 +6,12 @@
     padding-top:10.2%;
     color:#f00;
   }
+  .date-sel select {
+    width:32.8%;
+  }
+  .section-btn {
+    margin-left: 1.44%;
+  }
 }
 @media screen and (max-width:767px) {
   .about-emp {
@@ -25,6 +31,12 @@
   }
   .top-header {
     height:150px;
+  }
+  .date-sel select {
+    width:32.2%;
+  }
+  .section-btn {
+    margin-left: 4.6%;
   }
 }
 .search_form {
