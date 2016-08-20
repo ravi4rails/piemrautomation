@@ -126,3 +126,9 @@
 .btn-custom:hover {
   color:#fff;
 }
+
+.btn-add-new, .btn-add-new:focus, .btn-add-new:hover {
+  background-color: blue;
+  border-color: #2e6da4;
+  color: #fff;
+}

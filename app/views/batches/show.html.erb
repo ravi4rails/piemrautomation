@@ -1,42 +1,51 @@
 <div class="container">
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="section-index">
-        <% @batch.sections.each do |section| %>
-          <tr id="section_<%= section.id%>">
-            <td><%= section.section_name %></td>
-            <td><%= section.status %></td>
-            <td class="hidden-xs">
-              <%= link_to edit_section_path(section), class: "btn btn-warning", remote: true do %>
-                <i class="fa fa-pencil"></i> Edit
-              <% end %>
-            </td>
-            <td class="visible-xs">
-              <%= link_to edit_section_path(section), class: "btn btn-warning btn-xs", remote: true do %>
-                <i class="fa fa-pencil"></i> Edit
-              <% end %>
-            </td>
+  <% if @batch.sections.present?%>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody id="section-index">
+          <% @batch.sections.each do |section| %>
+            <tr id="section_<%= section.id%>">
+              <td><%= section.section_name %></td>
+              <td><%= section.status %></td>
+              <td class="hidden-xs">
+                <%= link_to edit_section_path(section), class: "btn btn-warning", remote: true do %>
+                  <i class="fa fa-pencil"></i> Edit
+                <% end %>
+              </td>
+              <td class="visible-xs">
+                <%= link_to edit_section_path(section), class: "btn btn-warning btn-xs", remote: true do %>
+                  <i class="fa fa-pencil"></i> Edit
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <% if maximum_section_count(@batch.id)%>
+    <div class="form-group section-btn">
+      <%= link_to new_batch_section_path(@batch), class: "btn btn-add-new btn-lg", remote: true do %>
+        <i class="glyphicon glyphicon-plus"></i> Add New Section
+      <% end %>
+    </div>
+  <% end %>
+  <center>
+    <div class="btm-sec">
+      <a href="<%= course_path(@batch.course) %>" class="back-link">
+        <%= image_tag "bkbtn.png", class: "img-responsive"%>
+      </a>
+    </div>
+  </center>
 </div>
 
-<% if maximum_section_count(@batch.id)%>
-  <div class="form-group section-btn">
-    <%= link_to new_batch_section_path(@batch), class: "btn btn-primary btn-lg", remote: true do %>
-      <i class="glyphicon glyphicon-plus"></i> Add New Section
-    <% end %>
-  </div>
-<% end %>
 
 <div class="modal fade" id="new-section-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 </div>
