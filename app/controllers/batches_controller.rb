@@ -5,6 +5,7 @@ class BatchesController < ApplicationController
   end
 
   def show
+    @images = ['k2.jpg', 'a1.jpg', 'm1.jpg', 's4.jpg', 's3.jpg', 'k2.jpg', 'a1.jpg', 'm1.jpg', 's4.jpg', 's3.jpg', 'k2.jpg', 'a1.jpg', 'm1.jpg', 's4.jpg', 's3.jpg', 'k2.jpg', 'a1.jpg', 'm1.jpg', 's4.jpg', 's3.jpg']
   end
 
   def update

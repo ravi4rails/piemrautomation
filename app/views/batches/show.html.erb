@@ -37,6 +37,23 @@
       <% end %>
     </div>
   <% end %>
+  <div class="well">
+    <h2>Batch Students</h2>
+  </div>
+  <div id="owl-example" class="owl-carousel hidden-xs batch-students">
+    <% @images.each do |img| %>
+      <div class="item">
+        <%= image_tag img, class: "img-responsive" %>
+      </div>
+    <% end %>
+  </div>
+  <div id="owl-example-xs" class="owl-carousel visible-xs batch-students">
+    <% @images.each do |img| %>
+      <div class="item">
+        <%= image_tag img, class: "img-responsive" %>
+      </div>
+    <% end %>
+  </div>
   <center>
     <div class="btm-sec">
       <a href="<%= course_path(@batch.course) %>" class="back-link">
@@ -52,3 +69,15 @@
 
 <div class="modal fade" id="edit-section-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function($) {
+    $("#owl-example").owlCarousel({
+    });
+    $("#owl-example-xs").owlCarousel({
+      navigation:true,
+      navigationText : ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+      pagination: false
+    });
+  });
+</script>

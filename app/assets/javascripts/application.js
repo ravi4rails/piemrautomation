@@ -19,3 +19,4 @@
 //= require dataTables.responsive.min
 //= require responsive.bootstrap.min
 //= require cocoon
+//= require owl.carousel
